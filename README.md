@@ -1,31 +1,29 @@
-# Tasks Calendar Wrapper
+# Mycoshiro Task Calendar
 
-![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22tasks-calendar-wrapper%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json)
-
-This plugin currently provides a timeline view to display your tasks from your [obsidian](https://obsidian.md/) valut, with customizable filters and renderring options.
+This plugin currently provides a timeline view to display your tasks from your [Obsidian](https://obsidian.md/) valut, with customizable filters and renderring options.
 
 ## Overview
 
-The [ExampleValut](https://github.com/Leonezz/obsidian-tasks-calendar-wrapper/tree/master/ExampleVault) provides an example using this plugin, the screen shot with the [Blue-Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css) light theme is as follows:
+The following is a screenshot of an example vault that uses this plugin with the [Blue-Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css) light theme.
 
-![](imgs/overview.png)
+![Screenshot of plugin using Blue-Topaz](imgs/overview.png)
 
 ## Features
 
-- Organize taks in a timeline view
+- Organize tasks in a timeline view
 - Customizable options
 - Quick entry panel for new items and filters
 
 ## About
 
-This is a simple wrapper for Obsidian-Tasks-Calendar (https://github.com/702573N/Obsidian-Tasks-Calendar) and Obsidian-Tasks-Timeline (https://github.com/702573N/Obsidian-Tasks-Timeline).
+This is a simple wrapper for Obsidian-Tasks-Calendar (<https://github.com/702573N/Obsidian-Tasks-Calendar>) and Obsidian-Tasks-Timeline (<https://github.com/702573N/Obsidian-Tasks-Timeline>).
 
 This plugin provides setting pages and update support for [702573N](https://github.com/702573N)'s great work, for detailed information
 about the options, see [Obsidian-Tasks-Calendar](https://github.com/702573N/Obsidian-Tasks-Calendar) and [Obsidian-Tasks-Timeline](https://github.com/702573N/Obsidian-Tasks-Timeline).
 
 ## Usage
 
-goto command panel and find "Tasks Calendar Wrapper: Open Tasks Timeline View", select the command and the view will show up.
+goto command panel and find "Task Calendar Wrapper: Open Tasks Timeline View", select the command and the view will show up.
 
 ### Date format
 
@@ -56,7 +54,7 @@ There are mainly two components in the timeline view, which are the quick entry 
 ### Quick Entry
 
 The quick entry panel provides four buttons an one input line.
-![](imgs/quick_entry.png)
+![Quick Entry Screenshot](imgs/quick_entry.png)
 
 #### Buttons
 
@@ -66,7 +64,7 @@ The four buttons are: Focus On Today, Todo, Overdue, and Unplanned. With Focus O
 
 With the input line you can append new task items to predefined sections in selected files, for example, you can append a new task to your 'Inbox' file:
 
-![](imgs/newtask.png)
+![New Task Screenshot](imgs/newtask.png)
 
 Just some details to make it easier, you can input in the panel with some of the [Tasks-Plugin](https://github.com/obsidian-tasks-group/obsidian-tasks) defined emoji format date, for example, you could input the word 'due' and a blank space, the emoji 📅 will replace the word 'due'. The following word-emoji pairs are now available:
 
@@ -88,13 +86,13 @@ Besides, there are some natural language dates support:
 
 Another functionality the input line provides is a quick filter, currently data range and priorities based filter are supported, hopefully a tag based filter will be added soon!
 
-![](imgs/filter.png)
+![Filter Screenshot](imgs/filter.png)
 
 ### Content
 
 The content component are date-based, to be specific, the task items are organized with their dates. For each date, there could be a date header, and there could be a year head for each year.
 
-![](imgs/content.png)
+![Content Screenshot](imgs/content.png)
 
 #### Task Item Component
 
@@ -102,13 +100,13 @@ For a specific task item, this view displays the item content, status, priority,
 
 The status are displayed in form of icons, and the other meta-data are displayed with icons and badges.
 
-![](imgs/item.png)
+![Item with other metadata](imgs/item.png)
 
 Since v0.2.1, now you can switch from the builtin icons to theme defined status and icons!
 
 Below is a screen shot with theme [AnuPpuccin](https://github.com/AnubisNekhet/AnuPpuccin).
 
-![](imgs/theme-defined-markers.png)
+![Markers defined by theme](imgs/theme-defined-markers.png)
 
 ## Options
 
@@ -128,7 +126,7 @@ Below is a screen shot with theme [AnuPpuccin](https://github.com/AnubisNekhet/A
 - **Daily Note Folder**: Specify your daily note folder.
 - **Daily Note Format**: Specify in what format your daily note file are named. The input should be a valid moment format, please refer the [docs of moment.js](https://momentjs.com/docs/#/displaying/format/) for more details.
 - **Enable Year Header**: Show a year header before each year or not.
-- **Hide Tasks of Specific Status**: If you would like not to see tasks with specific status in the view, list the markers separated by ',' here. All markers are available, but do note that if you would like to hide tasks of empty maker, use `[ ]` instead of ` `.
+- **Hide Tasks of Specific Status**: If you would like not to see tasks with specific status in the view, list the markers separated by ',' here. All markers are available, but do note that if you would like to hide tasks of empty maker, use `[ ]` instead of ``.
 - **Forward Tasks From Past**: If enabled, all unplanned and overdue tasks will be displayed on today's part, and removed form their original dates. If disabled, all overdue tasks will be on their original dates, but all unplanned tasks will disappear.
 - **Today Focus On Load**: Enable the Today Focus Button on load or not.
 - **Activate Filter On Load**: Select a counter/filter button to be enabled on load. Available options are:
@@ -146,7 +144,6 @@ Below is a screen shot with theme [AnuPpuccin](https://github.com/AnubisNekhet/A
 - **Date Format**: Specify a date format you like the most, the visible dates in this view will be formated as such. Do note the input here should be a valid [moment](https://momentjs.com/docs/#/displaying/format/) format.
 - **Sort By**: Specify how would you like the task items in the same date to be sorted. Available options are:
   - (I believe all option texts here explain themselves)
-- **Convert Time Prefix**: If enabled, tasks prefixed with a 24-hour timestamp (i.e. "09:00") will be displayed in the timeline with a 12-hour timestamp instead (i.e. "9:00 am"). This is a purely visual option that does not affect sorting, allowing users to display tasks with a 12-hour time format chronologically.
 - **Use Include Tags**: If enabled, you could specify tags without which the tasks should not be displayed.
   - **Task Include Filters**: Tasks without any of these tags should not be displayed.
   - **File Include Tags**: Tasks of the files which have none of these tags should not be displayed.
@@ -154,9 +151,8 @@ Below is a screen shot with theme [AnuPpuccin](https://github.com/AnubisNekhet/A
   - **Task Exclude Tags**: Tasks with any of these tags should not be displayed.
   - **File Exclude Tags**: Tasks of files which have any of these tags should not be displayed.
 - **Exclude Paths**: Specify items of which paths should not be counted as tasks. In most of the time your template folder path should be included here.
-- **Include Paths**: Specify items of which paths should be counted as tasks.
 - **Filter Empty**: If enabled, tasks with empty content will not be displayed. If disabled, the raw text of the empty content tasks will be displayed.
 
-# License
+## License
 
 MIT.
