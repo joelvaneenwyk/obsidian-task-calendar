@@ -17,7 +17,7 @@
 		"@svgr/webpack": "^6.5.1",
 		"@types/backbone": "^1.4.15",
 		"@types/luxon": "^3.2.0",
-		"@types/node": "^16.11.6",
+		"@types/node": "^20.10.1",
 		"@types/parsimmon": "^1.10.6",
 		"@types/react-dom": "^18.0.11",
 		"@typescript-eslint/eslint-plugin": "5.29.0",
