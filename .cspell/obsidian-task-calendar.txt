@@ -1,0 +1,5 @@
+# Custom Dictionary Words
+parsimmon
+svgr
+zhuwenq
+AnuPpuccin

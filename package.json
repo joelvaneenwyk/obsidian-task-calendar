@@ -36,5 +36,24 @@
 		"eslint": "^8.34.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
+	},
+	"cspell": {
+		"version": "0.2",
+		"ignorePaths": [
+			"node_modules/**"
+		],
+		"dictionaryDefinitions": [
+			{
+				"name": "obsidian-task-calendar-dictionary",
+				"path": "./.cspell/obsidian-task-calendar.txt",
+				"addWords": true
+			}
+		],
+		"dictionaries": [
+			"obsidian-task-calendar-dictionary"
+		],
+		"words": [],
+		"ignoreWords": [],
+		"import": []
 	}
 }

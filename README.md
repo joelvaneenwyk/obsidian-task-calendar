@@ -27,10 +27,10 @@ The [ExampleVault](https://github.com/Leonezz/obsidian-tasks-calendar-wrapper/tr
 
 ## About
 
-This is a simple wrapper for obsidian-task-calendar-view (https://github.com/702573N/obsidian-task-calendar-view) and obsidian-task-timeline-view (https://github.com/702573N/obsidian-task-timeline-view).
+This is a simple wrapper for [obsidian-task-calendar-view](https://github.com/joelvaneenwyk/obsidian-task-calendar-view) and [obsidian-task-timeline-view](https://github.com/joelvaneenwyk/obsidian-task-timeline-view).
 
 This plugin provides setting pages and update support for [702573N](https://github.com/702573N)'s great work, for detailed information
-about the options, see [obsidian-task-calendar-view](https://github.com/702573N/obsidian-task-calendar-view) and [obsidian-task-timeline-view](https://github.com/702573N/obsidian-task-timeline-view).
+about the options, see [obsidian-task-calendar-view](https://github.com/joelvaneenwyk/obsidian-task-calendar-view) and [obsidian-task-timeline-view](https://github.com/joelvaneenwyk/obsidian-task-timeline-view).
 
 ## Usage
 
@@ -140,7 +140,7 @@ Modification to the options will take effect after 5 secs.
 - **Daily Note Folder**: Specify your daily note folder.
 - **Daily Note Format**: Specify in what format your daily note file are named. The input should be a valid moment format, please refer the [docs of moment.js](https://momentjs.com/docs/#/displaying/format/) for more details.
 - **Enable Year Header**: Show a year header before each year or not.
-- **Hide Tasks of Specific Status**: If you would like not to see tasks with specific status in the view, list the markers separated by ',' here. All markers are available, but do note that if you would like to hide tasks of empty maker, use `[ ]` instead of ` `.
+- **Hide Tasks of Specific Status**: If you would like not to see tasks with specific status in the view, list the markers separated by ',' here. All markers are available, but do note that if you would like to hide tasks of empty maker, use `[ ]` instead of ``.
 - **Forward Tasks From Past**: If enabled, all unplanned and overdue tasks will be displayed on today's part, and removed form their original dates. If disabled, all overdue tasks will be on their original dates, but all unplanned tasks will disappear.
 - **Today Focus On Load**: Enable the Today Focus Button on load or not.
 - **Activate Filter On Load**: Select a counter/filter button to be enabled on load. Available options are:
