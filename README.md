@@ -26,10 +26,10 @@ The [ExampleValut](https://github.com/Leonezz/obsidian-tasks-calendar-wrapper/tr
 
 ## About
 
-This is a simple wrapper for Obsidian-Tasks-Calendar (https://github.com/702573N/Obsidian-Tasks-Calendar) and Obsidian-Tasks-Timeline (https://github.com/702573N/Obsidian-Tasks-Timeline).
+This is a simple wrapper for obsidian-task-calendar-view (https://github.com/702573N/obsidian-task-calendar-view) and obsidian-task-timeline-view (https://github.com/702573N/obsidian-task-timeline-view).
 
 This plugin provides setting pages and update support for [702573N](https://github.com/702573N)'s great work, for detailed information
-about the options, see [Obsidian-Tasks-Calendar](https://github.com/702573N/Obsidian-Tasks-Calendar) and [Obsidian-Tasks-Timeline](https://github.com/702573N/Obsidian-Tasks-Timeline).
+about the options, see [obsidian-task-calendar-view](https://github.com/702573N/obsidian-task-calendar-view) and [obsidian-task-timeline-view](https://github.com/702573N/obsidian-task-timeline-view).
 
 ## Usage
 
