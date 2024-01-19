@@ -18,10 +18,10 @@ export abstract class BaseTasksView extends ItemView {
 }
 
 export class TasksTimelineView extends BaseTasksView {
-  private taskListModel = new Model({
+    private taskListModel = new Model({
     taskList: [] as TaskDataModel[]
-  });
-  private userOptionModel = new Model({ ...defaultUserOptions });
+    });
+    private userOptionModel = new Model({ ...defaultUserOptions });
   private _taskAdapter: ObsidianTaskAdapter;
   private static _activeTasksTimelineView?: TasksTimelineView;
 
@@ -130,7 +130,7 @@ export class TasksTimelineView extends BaseTasksView {
     return '';
   }
 
-  getIcon(): string {
+    getIcon(): string {
     return 'calendar-clock';
-  }
+    }
 }
