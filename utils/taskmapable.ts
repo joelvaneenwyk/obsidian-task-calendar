@@ -1,5 +1,5 @@
-import { getFileTitle } from "dataview-util/dataview";
-import { Link } from "dataview-util/markdown";
+import { getFileTitle } from "../dataview-util/dataview";
+import { Link } from "../dataview-util/markdown";
 import { moment } from "obsidian";
 import * as TasksUtil from "./tasks";
 
@@ -48,8 +48,8 @@ function filterByDateTimeRange(from: moment.Moment, to: moment.Moment, by: momen
 /**
  * This function is taken from TasksPlugin, it is originally named fromLine.
  * We use this function to extract information that matches the TasksPlugin format.
- * @param item 
- * @returns 
+ * @param item
+ * @returns
  */
 export async function tasksPluginTaskParser(item: Promise<TasksUtil.TaskDataModel>): Promise<TasksUtil.TaskDataModel> {
     return new Promise((resolve, reject) => {
@@ -234,8 +234,8 @@ export function dailyNoteTaskParser(dailyNoteFormat: string = TasksUtil.innerDat
 }
 /**
  * !! NEED improvement
- * @param item 
- * @returns 
+ * @param item
+ * @returns
  */
 export function taskLinkParser(item: TasksUtil.TaskDataModel) {
 

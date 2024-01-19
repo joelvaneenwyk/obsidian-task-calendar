@@ -19,7 +19,12 @@
       "ES6",
       "ES7",
       "es2021",
-    ]
+    ],
+	"paths": {
+		"@task-calendar-views/*": [
+			"views/obsidian-task-timeline-view/src/*"
+		]
+	}
   },
   "include": [
     "**/*.ts",
