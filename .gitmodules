@@ -1,8 +1,0 @@
-[submodule "Obsidian-Tasks-Calendar"]
-	path = Obsidian-Tasks-Calendar
-	url = git@github.com:joelvaneenwyk/obsidian-task-calendar-view.git
-	branch = develop
-[submodule "Obsidian-Tasks-Timeline"]
-	path = Obsidian-Tasks-Timeline
-	url = git@github.com:joelvaneenwyk/obsidian-task-timeline-view.git
-	branch = develop
