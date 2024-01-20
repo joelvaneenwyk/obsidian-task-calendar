@@ -11,11 +11,11 @@ I am currently refactoring this plugin with NextUI components, to make this plug
 
 Here is a very early preview, please do leave an issue if you have any thoughts!
 
-![image](https://github.com/Leonezz/obsidian-tasks-calendar-wrapper/assets/33564074/69d5a590-9d61-4a5a-9cd3-94a5598d4d50)
+![Task Calendar Screenshot](./imgs/hero.png)
 
 ## Overview
 
-The [ExampleVault](https://github.com/Leonezz/obsidian-tasks-calendar-wrapper/tree/master/ExampleVault) provides an example using this plugin, the screen shot with the [Blue-Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css) light theme is as follows:
+The [ExampleVault](https://github.com/Leonezz/obsidian-tasks-calendar-wrapper/tree/master/ExampleVault) provides an example using this plugin, the screenshot with the [Blue-Topaz](https://github.com/whyt-byte/Blue-Topaz_Obsidian-css) light theme is as follows:
 
 ![Overview Screenshot](imgs/overview.png)
 
