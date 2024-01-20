@@ -1,0 +1,74 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python package
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  PLUGIN_NAME: ${{ github.event.repository.name }}
+  YARN_IGNORE_NODE: 1
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+        node-version: [16, 18, 20]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: ESLint
+        run: npm run eslint
+
+  #      # https://github.com/actions/setup-node/issues/182
+  #      - name: Enable corepack
+  #        run: |
+  #          npm install -g corepack
+  #          corepack enable yarn
+  #
+  #      - name: Use Node.js
+  #        uses: actions/setup-node@v4
+  #        with:
+  #          cache: yarn
+  #
+  #      - name: Run 'yarn' install
+  #        uses: borales/actions-yarn@v4
+  #        with:
+  #          cmd: install
+  #
+  #      - name: Build plugin
+  #        uses: borales/actions-yarn@v4
+  #        with:
+  #          cmd: build
+
+      - name: Upload plugin files
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PLUGIN_NAME }}-${{ matrix.os }}-node${{ matrix.node-version }}
+          path: |
+            main.js
+            manifest.json
+            styles.css
+            README.md
