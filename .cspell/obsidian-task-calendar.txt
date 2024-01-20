@@ -1,5 +1,6 @@
-# Custom Dictionary Words
 AnuPpuccin
+borales
+corepack
 dataview
 Eslinter
 JSPATH
