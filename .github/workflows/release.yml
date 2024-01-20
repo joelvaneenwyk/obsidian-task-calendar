@@ -6,7 +6,7 @@ on:
       - "*"
 
 env:
-  PLUGIN_NAME: obsidian-tasks-calendar-wrapper # Change this to match the id of your plugin.
+  PLUGIN_NAME: obsidian-task-calendar
   JSPATH: ExampleVault/.obsidian/plugins/tasks-view/main.js
 
 jobs:

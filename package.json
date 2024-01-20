@@ -1,5 +1,5 @@
 {
-	"name": "tasks-calendar-wrapper",
+	"name": "obsidian-task-calendar",
 	"version": "0.2.9",
 	"description": "This is a simple wrapper for obsidian-task-calendar-view (https://github.com/702573N/obsidian-task-calendar-view) and obsidian-task-timeline-view (https://github.com/702573N/obsidian-task-timeline-view).",
 	"main": "src/main.ts",
