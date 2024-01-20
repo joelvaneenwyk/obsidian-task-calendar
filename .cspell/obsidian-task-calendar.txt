@@ -1,5 +1,9 @@
 # Custom Dictionary Words
+AnuPpuccin
+dataview
+Eslinter
+JSPATH
+noreply
 parsimmon
 svgr
 zhuwenq
-AnuPpuccin
