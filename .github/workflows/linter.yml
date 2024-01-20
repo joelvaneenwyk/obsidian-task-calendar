@@ -1,39 +1,48 @@
-name: Eslinter Fix and Push CI
+name: ESLint
 
 on:
-  push:
-    branches: [main, develop]
   pull_request:
+    branches: [main, develop]
+  pull_request_target:
     branches: [main, develop]
 
 jobs:
   linter:
     name: Linter
     runs-on: ubuntu-latest
+
+    # See details at https://github.com/ad-m/github-push-action/
+    permissions:                # Job-level permissions configuration starts here
+      contents: write           # 'write' access to repository contents
+      pull-requests: write      # 'write' access to pull requests
+
     steps:
-        - uses: actions/checkout@v2
-        - name: Use Node.js
-          uses: actions/setup-node@v1
-          with:
-            node-version: "14.x"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
-        - name: Install dependencies
-          run: npm install
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-        - name: Fix Eslint issues
-          run: npm run eslint:fix
+      - name: Install dependencies
+        run: npm install
 
-        - name: Commit changes
-          run: |
-            git config user.name github-actions[bot]
-            git config user.email github-actions[bot]@users.noreply.github.com
-            git commit -am "fixed Eslint issues" || true
+      - name: Fix Eslint issues
+        run: npm run eslint:fix
 
-        - name: Push changes
-          uses: ad-m/github-push-action@master
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            branch: ${{ github.ref }}
+      - name: Commit changes
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          git commit -am "Fixed eslint issues" || true
 
-        - name: Check again to validate all issues are fixed
-          run: npm run eslint
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          branch: ${{ github.ref }}
+
+      - name: Check again to validate all issues are fixed
+        run: npm run eslint
