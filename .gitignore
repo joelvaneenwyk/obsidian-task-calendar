@@ -1,17 +1,7 @@
-# vscode
-.vscode
-
-# Intellij
-*.iml
-.idea
-
 # npm
-node_modules
+node_modules/
 
-# Exclude sourcemaps
-*.map
-
-# obsidian
+# Obsidian
 data.json
 
 # Exclude macOS Finder (System Explorer) View States
@@ -19,7 +9,6 @@ data.json
 
 yarn-error.log
 
-ExampleVault/.obsidian
-
 yarn.lock
 src/**/*.js
+utils/**/*.js
