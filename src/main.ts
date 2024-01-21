@@ -67,7 +67,7 @@ export default class TasksCalendarWrapper extends Plugin {
 		await this.saveData(Object.assign({}, this.userOptions));
 	}
 
-	async activateView(type: string) {
+	async activateView(type: string) : Promise<void> {
 		if (type !== TIMELINE_VIEW) {
 			return;
 		}
@@ -78,9 +78,10 @@ export default class TasksCalendarWrapper extends Plugin {
 				active: true,
 			});
 
-			this.app.workspace.revealLeaf(
-				this.app.workspace.getLeavesOfType(type).first()!
-			);
+			const leaf = this.app.workspace.getLeavesOfType(type).first();
+			if (leaf) {
+				this.app.workspace.revealLeaf(leaf);
+			}
 		} catch (e) {
 			console.log(e)
 		}

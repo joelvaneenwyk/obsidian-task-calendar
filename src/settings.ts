@@ -96,7 +96,7 @@ export const defaultUserOptions = {
      * Specify a color palette for tags.
      * Note that this will override other color setting for tags.
      */
-    tagColorPalette: { "#TODO": "#339988", "#TEST": "#998877" } as any,
+    tagColorPalette: { "#TODO": "#339988", "#TEST": "#998877" } as Record<string, string>,
     /**
      * Use counters on the today panel or not
      */

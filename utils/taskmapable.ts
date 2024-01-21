@@ -177,8 +177,10 @@ export async function dataviewTaskParser(item: Promise<TasksUtil.TaskDataModel>)
                     // this is necessary since every time RegEx.exec,
                     // the lastIndex changed like an internal state.
                     TasksUtil.TaskRegularExpressions.keyValueRegex.lastIndex = 0;
-                    const tkv = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(inlineField)!;
-                    const [text, key, value] = [tkv[0], tkv[1], tkv[2]];
+                    const tkv = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(inlineField);
+                    const [text, key, value] = tkv !== null
+						? [tkv[0], tkv[1], tkv[2]]
+						: ["", "", ""];
                     itemText = itemText.replace(text, '');
 
                     if (!TasksUtil.TaskStatusCollection.includes(key)) continue;
@@ -238,15 +240,15 @@ export function dailyNoteTaskParser(dailyNoteFormat: string = TasksUtil.innerDat
  * @returns
  */
 export function taskLinkParser(item: TasksUtil.TaskDataModel) {
+	item.outlinks = [];
+	const visual: string = item.visual ?? "";
 
-    item.outlinks = [];
-
-    let outerLinkMatch = TasksUtil.TaskRegularExpressions.outerLinkRegex.exec(item.visual!);
-    let innerLinkMatch = TasksUtil.TaskRegularExpressions.innerLinkRegex.exec(item.visual!);
-    let dataviewDateMatch = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(item.visual!);
+    let outerLinkMatch = TasksUtil.TaskRegularExpressions.outerLinkRegex.exec(visual);
+    let innerLinkMatch = TasksUtil.TaskRegularExpressions.innerLinkRegex.exec(visual);
+    let dataviewDateMatch = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(visual);
 
     const buildLink = (text: string, display: string, path: string, index: number, inner: boolean) => {
-        item.visual = item.visual!.replace(text, display);
+        item.visual = visual.replace(text, display);
 
         if (item.outlinks.some(l => l.path === path)) return;
 
@@ -259,26 +261,26 @@ export function taskLinkParser(item: TasksUtil.TaskDataModel) {
         if (!!outerLinkMatch && (!!innerLinkMatch && !dataviewDateMatch)) {
             if (outerLinkMatch.index < innerLinkMatch.index) {
                 buildLink(outerLinkMatch[0], outerLinkMatch[1], outerLinkMatch[2], outerLinkMatch.index, false);
-                innerLinkMatch = TasksUtil.TaskRegularExpressions.innerLinkRegex.exec(item.visual!);
-                dataviewDateMatch = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(item.visual!);
+                innerLinkMatch = TasksUtil.TaskRegularExpressions.innerLinkRegex.exec(visual);
+                dataviewDateMatch = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(visual);
                 (!!innerLinkMatch && !dataviewDateMatch) &&
                     buildLink(innerLinkMatch[0], innerLinkMatch[1], innerLinkMatch[1], innerLinkMatch.index, true);
             } else {
                 buildLink(innerLinkMatch[0], innerLinkMatch[1], innerLinkMatch[1], innerLinkMatch.index, true);
-                outerLinkMatch = TasksUtil.TaskRegularExpressions.outerLinkRegex.exec(item.visual!);
+                outerLinkMatch = TasksUtil.TaskRegularExpressions.outerLinkRegex.exec(visual);
                 (!!outerLinkMatch) &&
                     buildLink(outerLinkMatch[0], outerLinkMatch[1], outerLinkMatch[2], outerLinkMatch.index, false);
             }
-            innerLinkMatch = TasksUtil.TaskRegularExpressions.innerLinkRegex.exec(item.visual!);
-            dataviewDateMatch = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(item.visual!);
-            outerLinkMatch = TasksUtil.TaskRegularExpressions.outerLinkRegex.exec(item.visual!);
+            innerLinkMatch = TasksUtil.TaskRegularExpressions.innerLinkRegex.exec(visual);
+            dataviewDateMatch = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(visual);
+            outerLinkMatch = TasksUtil.TaskRegularExpressions.outerLinkRegex.exec(visual);
         } else if (outerLinkMatch) {
             buildLink(outerLinkMatch[0], outerLinkMatch[1], outerLinkMatch[2], outerLinkMatch.index, false);
-            outerLinkMatch = TasksUtil.TaskRegularExpressions.outerLinkRegex.exec(item.visual!);
+            outerLinkMatch = TasksUtil.TaskRegularExpressions.outerLinkRegex.exec(visual);
         } else if (!!innerLinkMatch && !dataviewDateMatch) {
             buildLink(innerLinkMatch[0], innerLinkMatch[1], innerLinkMatch[1], innerLinkMatch.index, true);
-            innerLinkMatch = TasksUtil.TaskRegularExpressions.innerLinkRegex.exec(item.visual!);
-            dataviewDateMatch = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(item.visual!);
+            innerLinkMatch = TasksUtil.TaskRegularExpressions.innerLinkRegex.exec(visual);
+            dataviewDateMatch = TasksUtil.TaskRegularExpressions.keyValueRegex.exec(visual);
         }
     }
 
@@ -365,7 +367,7 @@ function dateBasedStatusParser(item: TasksUtil.TaskDataModel) {
 
 function markerBasedStatusParser(item: TasksUtil.TaskDataModel) {
     if (!Object.keys(TasksUtil.TaskStatusMarkerMap).contains(item.status)) return dateBasedStatusParser(item);
-    item.status = (TasksUtil.TaskStatusMarkerMap as any)[item.status];
+    item.status = TasksUtil.TaskStatusMarkerMap[item.status];
     return item;
 }
 

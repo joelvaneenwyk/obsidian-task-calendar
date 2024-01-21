@@ -52,7 +52,7 @@ export const enum TaskStatus {
 }
 
 export const TaskStatusCollection: string[] = [TaskStatus.due, TaskStatus.scheduled, TaskStatus.start, TaskStatus.done, TaskStatus.unplanned];
-export const TaskStatusMarkerMap = {
+export const TaskStatusMarkerMap: Record<string, TaskStatus> = {
     '>': TaskStatus.overdue,
     '<': TaskStatus.scheduled,
     'x': TaskStatus.done,
