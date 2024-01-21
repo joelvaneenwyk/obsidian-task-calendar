@@ -7,7 +7,9 @@ This plugin currently provides a timeline view to display your tasks from your [
 
 ## Refactoring Notice ⚠️
 
-I am currently refactoring this plugin with NextUI components, to make this plugin more maintainable and expandable, more features and better visualization will come with this major revision!
+This plugin is currently being refactored to use `NextUI` components with the aim
+to make this plugin more maintainable, easier to add new features, and have better
+visuals!
 
 Here is a very early preview, please do leave an issue if you have any thoughts!
 
