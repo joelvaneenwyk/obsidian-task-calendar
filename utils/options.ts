@@ -25,7 +25,7 @@ export class TimelineSettings implements __Options{
     taskFiles: Set<string> = new Set();
     globalTaskFilter: Set<string> = new Set();
     dailyNoteFolder = "";
-    dailyNoteFormat: string | undefined = "YYYY-MM-DD";
+    dailyNoteFormat: string | undefined = "yyyy-MM-dd";
     done = false;
     sort = (t1: TaskDataModel, t2: TaskDataModel) => { return t1.order - t2.order; };
     css: string | undefined = undefined;

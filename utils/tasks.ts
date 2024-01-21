@@ -27,7 +27,7 @@ export const scheduledDateSymbol = '⏳';
 export const dueDateSymbol = '📅';
 export const doneDateSymbol = '✅';
 
-export const innerDateFormat = "YYYY-MM-DD";
+export const innerDateFormat = "yyyy-MM-dd";
 
 //["overdue", "due", "scheduled", "start", "process", "unplanned","done","cancelled"]
 export type TaskStatusType =
@@ -61,7 +61,7 @@ export const TaskStatusMarkerMap = {
 };
 
 export class TaskRegularExpressions {
-    public static readonly dateFormat = 'YYYY-MM-DD';
+    public static readonly dateFormat = 'yyyy-MM-dd';
 
     // Matches indentation before a list marker (including > for potentially nested blockquotes or Obsidian callouts)
     public static readonly indentationRegex = /^([\s\t>]*)/;

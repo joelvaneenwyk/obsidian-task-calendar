@@ -497,7 +497,7 @@ export class TasksCalendarSettingTab extends PluginSettingTab {
                 See <a href=https://momentjs.com/docs/#/displaying/format/>docs of moment.js</a> for more details."
             ))
             .addMomentFormat(async m => {
-                m.setPlaceholder("e.g.: YYYY-MM-DD");
+                m.setPlaceholder("e.g.: yyyy-MM-dd");
                 m.setValue(this.plugin.userOptions.dateFormat);
                 m.onChange(async v => await this.onOptionUpdate({ dateFormat: v }));
             })
