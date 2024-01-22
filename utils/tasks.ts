@@ -27,7 +27,7 @@ export const scheduledDateSymbol = '⏳';
 export const dueDateSymbol = '📅';
 export const doneDateSymbol = '✅';
 
-export const innerDateFormat = "YYYY-MM-DD";
+export const innerDateFormat = "yyyy-MM-dd";
 
 //["overdue", "due", "scheduled", "start", "process", "unplanned","done","cancelled"]
 export type TaskStatusType =
@@ -52,7 +52,7 @@ export const enum TaskStatus {
 }
 
 export const TaskStatusCollection: string[] = [TaskStatus.due, TaskStatus.scheduled, TaskStatus.start, TaskStatus.done, TaskStatus.unplanned];
-export const TaskStatusMarkerMap = {
+export const TaskStatusMarkerMap: Record<string, TaskStatus> = {
     '>': TaskStatus.overdue,
     '<': TaskStatus.scheduled,
     'x': TaskStatus.done,
@@ -61,7 +61,7 @@ export const TaskStatusMarkerMap = {
 };
 
 export class TaskRegularExpressions {
-    public static readonly dateFormat = 'YYYY-MM-DD';
+    public static readonly dateFormat = 'yyyy-MM-dd';
 
     // Matches indentation before a list marker (including > for potentially nested blockquotes or Obsidian callouts)
     public static readonly indentationRegex = /^([\s\t>]*)/;
@@ -162,7 +162,7 @@ export class TaskRegularExpressions {
 
 //const defaultSort = (t1: TaskDataModel, t2: TaskDataModel) => { return t1.order - t2.order; };
 export interface TaskDataModel extends STask {
-    // 
+    //
     dailyNote: boolean,
     //
     order: number,

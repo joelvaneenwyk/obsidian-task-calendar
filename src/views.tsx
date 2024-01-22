@@ -1,10 +1,10 @@
 import { Model } from "backbone";
 import { ItemView, moment, Notice, WorkspaceLeaf } from "obsidian";
-import { ObsidianBridge } from 'Obsidian-Tasks-Timeline/src/obsidianbridge';
-import { ObsidianTaskAdapter } from "Obsidian-Tasks-Timeline/src/taskadapter";
+import { ObsidianBridge } from '@task-calendar-views/obsidianbridge';
+import { ObsidianTaskAdapter } from "@task-calendar-views/taskadapter";
 import { createRoot, Root } from 'react-dom/client';
-import * as TaskMapable from 'utils/taskmapable';
-import { TaskDataModel, TaskStatus, TaskStatusMarkerMap } from "utils/tasks";
+import * as TaskMapable from '../utils/taskmapable';
+import { TaskDataModel, TaskStatus, TaskStatusMarkerMap } from "../utils/tasks";
 import { defaultUserOptions, UserOption } from "./settings";
 
 
@@ -25,8 +25,8 @@ export class TasksTimelineView extends BaseTasksView {
         taskList: [] as TaskDataModel[],
     });
 
-    private isReloading: boolean = false;
-    private userOptionModel = new Model({ ...defaultUserOptions });
+    private isReloading = false;
+    private userOptionModel: Model = new Model({ ...defaultUserOptions });
     static view: TasksTimelineView | null = null;
     constructor(leaf: WorkspaceLeaf) {
         super(leaf);
@@ -39,7 +39,6 @@ export class TasksTimelineView extends BaseTasksView {
     }
 
     async onOpen(): Promise<void> {
-
         this.registerEvent(this.app.metadataCache.on('resolved', this.onReloadTasks));
         this.registerEvent(this.app.workspace.on("window-open", this.onReloadTasks));
 

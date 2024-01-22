@@ -1,5 +1,5 @@
 import { App, Modal, Notice, Plugin, PluginSettingTab, Setting } from "obsidian";
-import { TaskRegularExpressions } from "utils/tasks";
+import { TaskRegularExpressions } from "../utils/tasks";
 import TasksCalendarWrapper from "./main";
 const sortOptions = {
     "(t1, t2) => t1.order <= t2.order ? -1 : 1": "status(ascending)",
@@ -89,14 +89,14 @@ export const defaultUserOptions = {
     inbox: "Inbox.md" as string,
     /**
      * Specify which files do you like to be displayed in the file select by default.
-     * If left blank, all files where there are task items will be displayed. 
+     * If left blank, all files where there are task items will be displayed.
      */
     taskFiles: [] as string[],
     /**
      * Specify a color palette for tags.
      * Note that this will override other color setting for tags.
      */
-    tagColorPalette: { "#TODO": "#339988", "#TEST": "#998877" } as any,
+    tagColorPalette: { "#TODO": "#339988", "#TEST": "#998877" } as Record<string, string>,
     /**
      * Use counters on the today panel or not
      */
@@ -147,7 +147,7 @@ export const defaultUserOptions = {
      * Display which file the task is from or not.
      */
     useFileBadge: true as boolean,
-    /** 
+    /**
      * Display which section the task is from or not.
      */
     useSection: true as boolean,
@@ -497,7 +497,7 @@ export class TasksCalendarSettingTab extends PluginSettingTab {
                 See <a href=https://momentjs.com/docs/#/displaying/format/>docs of moment.js</a> for more details."
             ))
             .addMomentFormat(async m => {
-                m.setPlaceholder("e.g.: YYYY-MM-DD");
+                m.setPlaceholder("e.g.: yyyy-MM-dd");
                 m.setValue(this.plugin.userOptions.dateFormat);
                 m.onChange(async v => await this.onOptionUpdate({ dateFormat: v }));
             })

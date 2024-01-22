@@ -88,7 +88,7 @@ export class Link {
         });
     }
 
-    public static fromObject(object: Record<string, any>) {
+    public static fromObject(object: Record<string, never>) {
         return new Link(object);
     }
 
@@ -98,18 +98,16 @@ export class Link {
 
     /** Checks for link equality (i.e., that the links are pointing to the same exact location). */
     public equals(other: Link): boolean {
-        if (other == undefined || other == null) return false;
-
-        return this.path == other.path && this.type == other.type && this.subpath == other.subpath;
+        return other !== undefined && this.path == other.path && this.type == other.type && this.subpath == other.subpath;
     }
 
-    /** Convert this link to it's markdown representation. */
+    /** Convert this link to its markdown representation. */
     public toString(): string {
         return this.markdown();
     }
 
     /** Convert this link to a raw object which is serialization-friendly. */
-    public toObject(): Record<string, any> {
+    public toObject(): Record<string, string | undefined | boolean> {
         return { path: this.path, type: this.type, subpath: this.subpath, display: this.display, embed: this.embed };
     }
 
@@ -200,11 +198,11 @@ export class PageMetadata {
     public day?: string;
     /** The first H1/H2 header in the file. May not exist. */
     public title?: string;
-    /** All of the fields contained in this markdown file - both frontmatter AND in-file links. */
+    /** All the fields contained in this markdown file - both frontmatter AND in-file links. */
     public fields: Map<string, string>;
-    /** All of the exact tags (prefixed with '#') in this file overall. */
+    /** All the exact tags (prefixed with '#') in this file overall. */
     public tags: Set<string>;
-    /** All of the aliases defined for this file. */
+    /** All the aliases defined for this file. */
     public aliases: Set<string>;
     /** All OUTGOING links (including embeds, header + block links) in this file. */
     public links: Link[];
