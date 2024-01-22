@@ -7,8 +7,8 @@
 		"dev": "cp manifest.json ExampleVault/.obsidian/plugins/tasks-view/ && node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
 		"version": "node version-bump.mjs && git add manifest.json versions.json",
-		"eslint": "npx eslint */**.ts",
-		"eslint:fix": "npx eslint --fix */**.ts ; exit 0"
+		"eslint": "npm exec eslint \"*/**.ts\" \"*/**.tsx\" ",
+		"eslint:fix": "npm exec eslint --fix \"*/**.ts\" \"*/**.tsx\" "
 	},
 	"keywords": [],
 	"author": "",
@@ -25,15 +25,15 @@
 		"builtin-modules": "3.3.0",
 		"emoji-regex": "^10.2.1",
 		"esbuild": "0.17.3",
+		"eslint": "^8.56.0",
 		"luxon": "^3.2.1",
 		"obsidian": "latest",
 		"parsimmon": "^1.18.1",
-		"tslib": "2.4.0",
+		"tslib": "^2.4.0",
 		"typescript": "4.7.4"
 	},
 	"dependencies": {
 		"backbone": "^1.4.1",
-		"eslint": "^8.34.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},

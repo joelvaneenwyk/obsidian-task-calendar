@@ -25,8 +25,8 @@ export class TasksTimelineView extends BaseTasksView {
         taskList: [] as TaskDataModel[],
     });
 
-    private isReloading: boolean = false;
-    private userOptionModel = new Model({ ...defaultUserOptions });
+    private isReloading = false;
+    private userOptionModel: Model = new Model({ ...defaultUserOptions });
     static view: TasksTimelineView | null = null;
     constructor(leaf: WorkspaceLeaf) {
         super(leaf);
@@ -39,7 +39,6 @@ export class TasksTimelineView extends BaseTasksView {
     }
 
     async onOpen(): Promise<void> {
-
         this.registerEvent(this.app.metadataCache.on('resolved', this.onReloadTasks));
         this.registerEvent(this.app.workspace.on("window-open", this.onReloadTasks));
 
